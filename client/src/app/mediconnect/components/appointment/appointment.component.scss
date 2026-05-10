@@ -1,0 +1,541 @@
+// /* Page Background Container */
+// .page-background {
+//   display: flex;
+//   justify-content: center;
+//   align-items: flex-start;
+//   min-height: calc(100vh - 61px);
+//   background: #cdded8; 
+//   padding: 40px 20px;
+//   font-family: 'Inter', 'Roboto', sans-serif;
+// }
+
+// /* Main Form Card */
+// .form-container {
+//   width: 100%;
+//   max-width: 500px;
+//   background: #ffffff;
+//   border-radius: 16px;
+//   padding: 40px 30px;
+//   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+// }
+
+// /* Header Typography */
+// .form-header {
+//   text-align: center;
+//   margin-bottom: 30px;
+// }
+
+// .form-header h2 {
+//   font-size: 24px;
+//   color: #5E9896;
+//   font-weight: 700;
+//   margin: 0 0 8px 0;
+//   letter-spacing: 0.5px;
+// }
+
+// .subtitle {
+//   font-size: 14px;
+//   color: #8c9e9c;
+//   margin: 0;
+// }
+
+// /* Input Fields */
+// .input-container {
+//   margin-bottom: 18px;
+// }
+
+// .input-group {
+//   display: flex;
+//   align-items: center;
+//   background: #fdfdfd;
+//   border: 1px solid #d8e0df;
+//   border-radius: 8px;
+//   padding: 8px 16px;
+//   transition: all 0.3s ease;
+// }
+
+// .input-group:focus-within {
+//   border-color: #5E9896;
+//   box-shadow: 0 0 0 3px rgba(94, 152, 150, 0.15);
+// }
+
+// .input-group.has-error {
+//   border-color: #e74c3c;
+// }
+
+// .input-field-wrapper {
+//   display: flex;
+//   flex-direction: column;
+//   flex: 1;
+// }
+
+// .input-field-wrapper label {
+//   font-size: 11px;
+//   color: #5E9896;
+//   font-weight: 600;
+//   margin-bottom: 2px;
+// }
+
+// .input-field-wrapper input,
+// .input-field-wrapper select,
+// .input-field-wrapper textarea {
+//   border: none;
+//   background: transparent;
+//   outline: none;
+//   font-size: 14px;
+//   color: #3b504e;
+//   width: 100%;
+//   font-family: inherit;
+// }
+
+// .input-field-wrapper input::placeholder,
+// .input-field-wrapper textarea::placeholder {
+//   color: #aebdbb;
+// }
+
+// .input-field-wrapper select {
+//   cursor: pointer;
+// }
+
+// .input-field-wrapper textarea {
+//   resize: vertical;
+//   min-height: 80px;
+//   padding-top: 4px;
+// }
+
+// /* Error styling */
+// .error small {
+//   display: block;
+//   color: #e74c3c;
+//   font-size: 12px;
+//   margin-top: 5px;
+//   margin-left: 5px;
+// }
+
+// /* Button */
+// .form-btn {
+//   width: 100%;
+//   padding: 14px;
+//   background: #5E9896;
+//   color: white;
+//   border: none;
+//   border-radius: 8px;
+//   font-size: 14px;
+//   font-weight: 600;
+//   letter-spacing: 0.5px;
+//   cursor: pointer;
+//   margin-top: 10px;
+//   transition: all 0.3s ease;
+// }
+
+// .form-btn:hover:not(:disabled) {
+//   background: #4a7d7b;
+// }
+
+// .form-btn:disabled {
+//   background: #aebdbb;
+//   cursor: not-allowed;
+// }
+
+// /* Footer Links */
+// .form-footer {
+//   margin-top: 20px;
+//   text-align: center;
+//   font-size: 14px;
+// }
+
+// .form-footer .link {
+//   color: #5E9896;
+//   font-weight: 600;
+//   text-decoration: none;
+//   transition: color 0.2s ease;
+// }
+
+// .form-footer .link:hover {
+//   color: #4a7d7b;
+//   text-decoration: underline;
+// }
+
+// /* Alert Messages */
+// .success-message,
+// .error-message {
+//   text-align: center;
+//   margin-top: 20px;
+//   font-size: 14px;
+//   padding: 12px;
+//   border-radius: 8px;
+// }
+
+// .success-message {
+//   color: #187d3b;
+//   background-color: #d4edda;
+//   border: 1px solid #c3e6cb;
+// }
+
+// .error-message {
+//   color: #c0392b;
+//   background-color: #f8d7da;
+//   border: 1px solid\ #f5c6cb;
+// }
+
+
+/* ============================= */
+/* Book Appointment Page - Blue Theme */
+/* ============================= */
+
+/* Page Container */
+.container {
+  max-width: 1050px;
+  margin: 35px auto;
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Main Card */
+.card {
+  border: 1px solid #dbeafe;
+  border-radius: 18px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(13, 110, 253, 0.14);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Card Hover */
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 38px rgba(13, 110, 253, 0.2);
+}
+
+/* Card Body */
+.card-body {
+  padding: 34px;
+}
+
+/* Page Heading */
+h4 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0d6efd;
+  margin-bottom: 8px;
+}
+
+/* Subtitle */
+.subtitle {
+  text-align: center;
+  font-size: 1rem;
+  color: #64748b;
+  margin-bottom: 28px;
+}
+
+/* Appointment Form */
+.appointment-form {
+  margin-top: 10px;
+}
+
+/* Bootstrap Row Support */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Form Labels */
+.form-label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 7px;
+}
+
+/* Input, Select, Textarea */
+.form-control,
+.form-select {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid #bfdbfe;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #111827;
+  background-color: #ffffff;
+  outline: none;
+  box-sizing: border-box;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* Placeholder */
+.form-control::placeholder,
+.form-select::placeholder {
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+/* Select Cursor */
+.form-select {
+  cursor: pointer;
+}
+
+/* Input Hover Animation */
+.form-control:hover,
+.form-select:hover {
+  border-color: #0d6efd;
+  background-color: #f8fbff;
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Input Focus Animation */
+.form-control:focus,
+.form-select:focus {
+  border-color: #0d6efd;
+  background-color: #ffffff;
+  box-shadow:
+    0 0 0 4px rgba(13, 110, 253, 0.16),
+    0 6px 16px rgba(13, 110, 253, 0.18);
+  transform: translateY(-2px);
+  animation: blueGlow 0.8s ease;
+}
+
+/* Blue Glow Animation */
+@keyframes blueGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.25);
+  }
+
+  70% {
+    box-shadow: 0 0 0 6px rgba(13, 110, 253, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(13, 110, 253, 0);
+  }
+}
+
+/* Textarea */
+textarea.form-control {
+  min-height: 100px;
+  resize: vertical;
+  margin-top: 5px;
+}
+
+/* Purpose Field Spacing */
+.col-md-12 {
+  margin-top: 18px;
+}
+
+/* Invalid Angular Fields */
+.form-control.ng-invalid.ng-touched,
+.form-select.ng-invalid.ng-touched {
+  border-color: #dc3545;
+  background-color: #fffafa;
+}
+
+/* Invalid Hover / Focus */
+.form-control.ng-invalid.ng-touched:hover,
+.form-control.ng-invalid.ng-touched:focus,
+.form-select.ng-invalid.ng-touched:hover,
+.form-select.ng-invalid.ng-touched:focus {
+  border-color: #dc3545;
+  box-shadow:
+    0 0 0 4px rgba(220, 53, 69, 0.12),
+    0 6px 16px rgba(220, 53, 69, 0.12);
+}
+
+/* Valid Angular Fields */
+.form-control.ng-valid.ng-touched,
+.form-select.ng-valid.ng-touched {
+  border-color: #0d6efd;
+  background-color: #f8fbff;
+}
+
+/* Error State Wrapper */
+.has-error .form-control,
+.has-error .form-select {
+  border-color: #dc3545;
+  background-color: #fffafa;
+}
+
+/* Error Text */
+.error {
+  margin-top: 6px;
+  color: #dc3545;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Small Error Text */
+.error small {
+  font-size: 0.85rem;
+}
+
+/* Button Container */
+.d-flex {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Gap Support */
+.gap-2 {
+  gap: 10px;
+}
+
+/* Margin Top Support */
+.mt-3 {
+  margin-top: 20px;
+}
+
+/* Common Button Styling */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* Submit Request Button */
+.btn-primary {
+  background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+  color: #ffffff;
+}
+
+/* Submit Hover */
+.btn-primary:hover {
+  background: linear-gradient(135deg, #0b5ed7, #084298);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(13, 110, 253, 0.28);
+}
+
+/* Submit Active */
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Disabled Submit Button */
+.btn-primary:disabled,
+button:disabled {
+  background: #cbd5e1 !important;
+  color: #64748b !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Return to Dashboard Button */
+.btn-outline-secondary {
+  background-color: #ffffff;
+  color: #0d6efd;
+  border: 1px solid #0d6efd;
+}
+
+/* Dashboard Button Hover */
+.btn-outline-secondary:hover {
+  background-color: #0d6efd;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(13, 110, 253, 0.22);
+}
+
+/* Alerts */
+.alert {
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Remove extra paragraph margin inside alert */
+.alert p {
+  margin: 0;
+}
+
+/* Success Alert */
+.alert-success {
+  background-color: #eaf4ff;
+  color: #0d6efd;
+  border: 1px solid #bfdbfe;
+}
+
+/* Error Alert */
+.alert-danger {
+  background-color: #fdecea;
+  color: #dc3545;
+  border: 1px solid #f5c2c7;
+}
+
+/* Optional Full Page Background */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eaf4ff, #f8fbff);
+}
+
+/* ============================= */
+/* Responsive Design */
+/* ============================= */
+
+@media (max-width: 768px) {
+  .container {
+    margin: 22px auto;
+    padding: 14px;
+  }
+
+  .card-body {
+    padding: 24px 20px;
+  }
+
+  h4 {
+    font-size: 1.7rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .d-flex {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  .card-body {
+    padding: 20px 16px;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+  }
+
+  .form-control,
+  .form-select {
+    font-size: 0.95rem;
+    padding: 10px 12px;
+  }
+}

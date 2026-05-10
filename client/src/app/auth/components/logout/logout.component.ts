@@ -7,17 +7,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./logout.component.scss']
 })
 export class LogoutComponent {
-  constructor(private router: Router) {}
+  isLoggingOut = false;
+  constructor(private router: Router) {}  
+logout(): void {
+    this.isLoggingOut = true;
 
-  logout(): void {
-    try {
-      localStorage.removeItem('token');
-      localStorage.removeItem('role');
-      localStorage.removeItem('user_id');
-      localStorage.removeItem('doctor_id');
-      localStorage.removeItem('patient_id');
-    } finally {
-      this.router.navigateByUrl('/auth');
-    }
+    setTimeout(() => {
+      try {
+        localStorage.removeItem('token');
+        localStorage.removeItem('role');
+        localStorage.removeItem('user_id');
+        localStorage.removeItem('doctor_id');
+        localStorage.removeItem('patient_id');
+      } finally {
+        this.router.navigateByUrl('/');
+      }
+    }, 1000);
   }
+
 }

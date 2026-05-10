@@ -1,3 +1,21 @@
-<button type="button" class="btn btn-outline-light btn-sm" (click)="logout()">
+<!-- 
+<button type="button" class="btn btn-outline-light" (click)="logout()">
+  Logout
+</button> -->
+
+
+<button
+  type="button"
+  class="btn btn-outline-light"
+  (click)="logout()"
+  [disabled]="isLoggingOut"
+>
   Logout
 </button>
+
+<div class="logout-overlay" *ngIf="isLoggingOut">
+  <div class="logout-box">
+    <div class="spinner"></div>
+    <h4>Logging out successfully...</h4>
+  </div>
+</div>

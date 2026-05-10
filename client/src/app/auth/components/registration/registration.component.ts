@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
  
 @Component({
   selector: 'app-registration',
@@ -13,7 +15,7 @@ export class RegistrationComponent implements OnInit {
   errorMessage: string | null = null;
   selectedRole: string | null = null;
  
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) {}
  
   ngOnInit(): void {
     this.registrationForm = this.formBuilder.group({
@@ -30,9 +32,9 @@ export class RegistrationComponent implements OnInit {
       contactNumber: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       specialty: [''],
-    yearsOfExperience: [''],
-    dateOfBirth: [''],
-    address: [''],
+      yearsOfExperience: [''],
+      dateOfBirth: [''],
+      address: [''],
     });
   }
 
@@ -48,9 +50,56 @@ export class RegistrationComponent implements OnInit {
       return;
     }
  
-    this.successMessage = 'Registration successful!';
-    this.errorMessage = null;
+    this.authService.createUser(this.registrationForm.value).subscribe(()=>{
+      this.successMessage = 'Registration successful!';
+      this.errorMessage = null;
+      this.resetForm();
+      // setTimeout(() => {
+      //   this.router.navigate(['/']);
+      // }, 2000);
+    })
   }
+//   onSubmit(): void {
+//   this.successMessage = null;
+//   this.errorMessage = null;
+
+//   if (this.registrationForm.invalid) {
+//     this.registrationForm.markAllAsTouched();
+//     this.errorMessage = 'Please fill out all fields correctly.';
+//     return;
+//   }
+
+//   const formData = {
+//     ...this.registrationForm.value,
+//     email: this.registrationForm.value.email.trim().toLowerCase()
+//   };
+
+//   this.authService.createUser(formData).subscribe({
+//     next: (response) => {
+//       this.successMessage = 'Registration successful!';
+//       this.errorMessage = null;
+
+//       this.registrationForm.reset();
+//       this.selectedRole = null;
+
+//       setTimeout(() => {
+//         this.router.navigate(['/']);
+//       }, 2000);
+//     },
+
+//     error: (error) => {
+//       console.error('Registration failed:', error);
+
+//       if (error.status === 400 && error.error) {
+//         this.errorMessage = error.error;
+//       } else {
+//         this.errorMessage = 'Registration failed. Please try again.';
+//       }
+
+//       this.successMessage = null;
+//     }
+//   });
+// }
  
   resetForm(): void {
     this.registrationForm.reset();

@@ -34,7 +34,7 @@ export class DashboardComponent implements OnInit {
   constructor(
     private mediconnectService: MediConnectService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.role = localStorage.getItem('role');
@@ -50,18 +50,22 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  // ------------- DOCTOR VIEW -------------
-
   loadDoctorData(): void {
     this.errorMessage = null;
 
     this.mediconnectService.getDoctorById(this.doctorId).subscribe({
-      next: (d: Doctor) => (this.doctorDetails = d),
+      next: (d: Doctor) => {
+        this.doctorDetails = d;
+        this.doctors = [d];
+      },
       error: () => (this.errorMessage = 'Failed to fetch doctor details'),
     });
 
     this.mediconnectService.getClinicsByDoctorId(this.doctorId).subscribe({
-      next: (c: Clinic[]) => (this.clinics = c),
+      next: (clinics: Clinic[]) => {
+        this.clinics = clinics || [];
+        if (this.clinics.length > 0) this.onClinicSelect(this.clinics[0]);
+      },
       error: () => (this.errorMessage = 'Failed to fetch clinics'),
     });
 
@@ -71,9 +75,9 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  onClinicSelect(clinic: Clinic): void {
-    this.selectedClinicId = clinic.clinicId;
-    this.loadAppointments(this.selectedClinicId);
+  onClinicSelect(clinic: any): void {
+    this.selectedClinicId = clinic?.clinicId;
+    if (this.selectedClinicId) this.loadAppointments(this.selectedClinicId);
   }
 
   loadAppointments(clinicId: number): void {
@@ -101,6 +105,9 @@ export class DashboardComponent implements OnInit {
         this.clinics = [];
         this.selectClinicAppointments = [];
         this.appointments = [];
+        setTimeout(() => {
+          this.router.navigate(['/login']);
+        }, 1000);
       },
       error: () => (this.errorMessage = 'Failed to delete doctor')
     });
@@ -152,31 +159,41 @@ export class DashboardComponent implements OnInit {
   //   });
   // }
   cancelAppointment(appointment: Appointment): void {
-  if (!appointment) { return; }
+    if (!appointment) { return; }
 
-  this.successMessage = '';
-  this.errorMessage = '';
+    this.successMessage = '';
+    this.errorMessage = '';
 
-  this.mediconnectService.updateAppointment(appointment).subscribe({
-    next: () => {
-      this.successMessage = 'Appointment canceled.';
-    },
-    error: () => (this.errorMessage = 'Failed to cancel appointment')
-  });
-}
+    appointment.status = 'Cancelled'
 
+    this.mediconnectService.updateAppointment(appointment).subscribe({
+      next: () => {
+        this.successMessage = 'Appointment canceled.';
+        this.loadDoctorData;
+      },
+      error: () => (this.errorMessage = 'Failed to cancel appointment')
+    });
+  }
+
+  acceptAppointment(appointment: Appointment): void {
+    if (confirm('Accept this appointment?')) {
+      appointment.status = 'Accepted';
+      this.mediconnectService.updateAppointment(appointment).subscribe({
+        next: () => this.loadDoctorData()
+      });
+    }
+  }
 
   navigateToEditDoctor(): void {
     // If you have a route like /mediconnect/doctor/edit/:doctorId
-    // this.router.navigate(['/mediconnect/doctor/edit', this.doctorId]);
+    this.router.navigate(['/mediconnect/doctor/edit', this.doctorId]);
   }
 
   navigateToEditClinic(id: number): void {
     // If you have a route like /mediconnect/clinic/edit/:clinicId
-    // this.router.navigate(['/mediconnect/clinic/edit', id]);
+    this.router.navigate(['/mediconnect/clinic/edit', id]);
   }
 
-  // ------------- PATIENT VIEW -------------
 
   loadPatientData(): void {
     this.errorMessage = null;
@@ -193,6 +210,20 @@ export class DashboardComponent implements OnInit {
       next: (c: Clinic[]) => (this.clinics = c),
       error: () => (this.errorMessage = 'Failed to fetch clinics'),
     });
+    this.mediconnectService.getClinicsByDoctorId(this.doctorId).subscribe({
+      next: (c: Clinic[]) => {
+        this.clinics = c;
+
+        // Automatically select first clinic and load appointments
+        if (this.clinics.length > 0) {
+          this.selectedClinicId = this.clinics[0].clinicId;
+          this.loadAppointments(this.selectedClinicId);
+        }
+      },
+      error: () => {
+        this.errorMessage = 'Failed to fetch clinics';
+      },
+    });
 
     this.mediconnectService.getAllDoctors().subscribe({
       next: (d: Doctor[]) => (this.doctors = d),
@@ -208,7 +239,7 @@ export class DashboardComponent implements OnInit {
   // Called by template button: <button (click)="navigateToEditPatient()">Edit</button>
   navigateToEditPatient(): void {
     // If you have a route like /mediconnect/patient/edit
-    this.router.navigate(['/mediconnect/patient/edit']);
+    this.router.navigate(['/mediconnect/patient/edit',this.patientId]);
   }
 
   // Called by template button: <button (click)="deletePatient()">Delete</button>
@@ -216,12 +247,16 @@ export class DashboardComponent implements OnInit {
     if (!this.patientId) { return; }
     this.successMessage = null;
     this.errorMessage = null;
+    
 
     this.mediconnectService.deletePatient(this.patientId).subscribe({
       next: () => {
         this.successMessage = 'Patient deleted successfully.';
         this.patientDetails = undefined;
         this.appointments = [];
+        setTimeout(() => {
+          this.router.navigate(['/login']);
+        }, 1000);
       },
       error: () => (this.errorMessage = 'Failed to delete patient')
     });

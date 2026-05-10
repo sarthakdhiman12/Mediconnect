@@ -1,0 +1,296 @@
+/* ============================= */
+/* Update Patient Page - Blue Theme */
+/* ============================= */
+
+/* Page Container */
+.container {
+  max-width: 1100px;
+  margin: 35px auto;
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Card Styling */
+.card {
+  border: 1px solid #dbeafe;
+  border-radius: 18px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(13, 110, 253, 0.14);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Card Hover */
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 38px rgba(13, 110, 253, 0.2);
+}
+
+/* Card Body */
+.card-body {
+  padding: 32px;
+}
+
+/* Heading */
+h4 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0d6efd;
+  margin-bottom: 28px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #eaf4ff;
+}
+
+/* Row Gap Support */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Form Labels */
+.form-label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 7px;
+}
+
+/* Input and Textarea Fields */
+.form-control {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid #bfdbfe;
+  border-radius: 10px;
+  font-size: 1rem;
+  color: #111827;
+  background-color: #ffffff;
+  outline: none;
+  box-sizing: border-box;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* Placeholder */
+.form-control::placeholder {
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+/* Input Hover Animation */
+.form-control:hover {
+  border-color: #0d6efd;
+  background-color: #f8fbff;
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Input Focus Animation */
+.form-control:focus {
+  border-color: #0d6efd;
+  background-color: #ffffff;
+  box-shadow:
+    0 0 0 4px rgba(13, 110, 253, 0.16),
+    0 6px 16px rgba(13, 110, 253, 0.18);
+  transform: translateY(-2px);
+  animation: blueGlow 0.8s ease;
+}
+
+/* Blue Glow Animation */
+@keyframes blueGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.25);
+  }
+
+  70% {
+    box-shadow: 0 0 0 6px rgba(13, 110, 253, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(13, 110, 253, 0);
+  }
+}
+
+/* Textarea */
+textarea.form-control {
+  min-height: 95px;
+  resize: vertical;
+}
+
+/* Invalid Field */
+.form-control.ng-invalid.ng-touched {
+  border-color: #dc3545;
+  background-color: #fffafa;
+}
+
+/* Invalid Hover / Focus */
+.form-control.ng-invalid.ng-touched:hover,
+.form-control.ng-invalid.ng-touched:focus {
+  border-color: #dc3545;
+  box-shadow:
+    0 0 0 4px rgba(220, 53, 69, 0.12),
+    0 6px 16px rgba(220, 53, 69, 0.12);
+}
+
+/* Valid Field */
+.form-control.ng-valid.ng-touched {
+  border-color: #0d6efd;
+  background-color: #f8fbff;
+}
+
+/* Button Container */
+.d-flex {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Gap Support if Bootstrap is not loaded */
+.gap-2 {
+  gap: 10px;
+}
+
+/* Margin Top Support */
+.mt-3 {
+  margin-top: 18px;
+}
+
+/* Common Button Styling */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* Submit Button */
+.btn-primary {
+  background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+  color: #ffffff;
+}
+
+/* Submit Button Hover */
+.btn-primary:hover {
+  background: linear-gradient(135deg, #0b5ed7, #084298);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(13, 110, 253, 0.28);
+}
+
+/* Submit Button Active */
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Disabled Submit Button */
+.btn-primary:disabled,
+button:disabled {
+  background: #cbd5e1 !important;
+  color: #64748b !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Dashboard Button */
+.btn-outline-secondary {
+  background-color: #ffffff;
+  color: #0d6efd;
+  border: 1px solid #0d6efd;
+}
+
+/* Dashboard Button Hover */
+.btn-outline-secondary:hover {
+  background-color: #0d6efd;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(13, 110, 253, 0.22);
+}
+
+/* Alerts */
+.alert {
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Success Alert */
+.alert-success {
+  background-color: #eaf4ff;
+  color: #0d6efd;
+  border: 1px solid #bfdbfe;
+}
+
+/* Error Alert */
+.alert-danger {
+  background-color: #fdecea;
+  color: #dc3545;
+  border: 1px solid #f5c2c7;
+}
+
+/* Optional Page Background */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eaf4ff, #f8fbff);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    margin: 22px auto;
+    padding: 14px;
+  }
+
+  .card-body {
+    padding: 24px 20px;
+  }
+
+  h4 {
+    font-size: 1.7rem;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .d-flex {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  .card-body {
+    padding: 20px 16px;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+  }
+
+  .form-control {
+    font-size: 0.95rem;
+    padding: 10px 12px;
+  }
+}
